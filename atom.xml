@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[My Octopress Blog]]></title>
-  <link href="http://b-spoked.github.com/atom.xml" rel="self"/>
-  <link href="http://b-spoked.github.com/"/>
-  <updated>2012-07-29T22:13:47+12:00</updated>
-  <id>http://b-spoked.github.com/</id>
+  <title><![CDATA[B-Spoked]]></title>
+  <link href="http://b-spoked.com/atom.xml" rel="self"/>
+  <link href="http://b-spoked.com/"/>
+  <updated>2012-07-29T22:35:57+12:00</updated>
+  <id>http://b-spoked.com/</id>
   <author>
-    <name><![CDATA[Jamie]]></name>
+    <name><![CDATA[B-Spoked]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
