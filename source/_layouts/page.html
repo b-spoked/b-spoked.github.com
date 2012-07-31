@@ -1,7 +1,5 @@
 ---
 layout: default
-sidebar: false
-footer: false
 ---
 
 <div>
@@ -9,7 +7,6 @@ footer: false
   {% if page.title %}
   <header>
     <h1 class="entry-title">{% if site.titlecase %}{{ page.title | titlecase }}{% else %}{{ page.title }}{% endif %}</h1>
-    <p class="meta">{% include post/date.html %}{% if updated %}{{ updated }}{% else %}{{ time }}{% endif %}</p>
   </header>
   {% endif %}
   {{ content }}

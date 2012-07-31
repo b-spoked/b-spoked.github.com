@@ -1,10 +1,10 @@
 $max-width: 1200px !default;
 
 // Padding used for layout margins
-$pad-min: 18px !default;
-$pad-narrow: 25px !default;
-$pad-medium: 35px !default;
-$pad-wide: 55px !default;
+$pad-min: 8px !default;
+$pad-narrow: 15px !default;
+$pad-medium: 25px !default;
+$pad-wide: 35px !default;
 
 // Sidebar widths used in media queries
 $sidebar-width-medium: 240px !default;
@@ -89,10 +89,7 @@ body {
   }
 }
 
-#content {
-  overflow: hidden;
-  > div, > article { width: 100%; }
-}
+#content { > div, > article { width: 100%; }}
 
 aside.sidebar {
   float: none;
@@ -127,18 +124,16 @@ body.sidebar-footer {
 @media only screen and (min-width: 750px) {
   aside.sidebar { @include collapse-sidebar; }
 }
-#main, #content, .sidebar {
-  @extend .group;
-}
 @media only screen and (min-width: 768px) {
   body { -webkit-text-size-adjust: auto; }
   body > header { font-size: $header-font-size * 1.2; }
   #main {
+    @extend .group;
     padding: 0;
     margin: 0 auto;
   }
   #content {
-    overflow: visible;
+    @extend .group;
     margin-right: $sidebar-width-medium;
     position: relative;
     .no-sidebar & { margin-right: 0; border-right: 0; }
@@ -150,6 +145,7 @@ body.sidebar-footer {
     }
   }
   aside.sidebar {
+    @extend .group;
     width: $sidebar-width-medium - $sidebar-pad-medium*2;
     padding: 0 $sidebar-pad-medium $sidebar-pad-medium;
     background: none;
@@ -180,6 +176,7 @@ body.sidebar-footer {
     padding: 1.2em $sidebar-pad-wide $sidebar-pad-wide;
     .collapse-sidebar & {
       padding: { left: $pad-wide; right: $pad-wide; }
+      @extend .group;
     }
   }
 }
@@ -189,4 +186,3 @@ body.sidebar-footer {
     ul, ol { margin-left: 0; }
   }
 }
-
