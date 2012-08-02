@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[B-Spoked]]></title>
-  <link href="http://b-spoked.com/atom.xml" rel="self"/>
+  <title><![CDATA[Category: apps | B-Spoked]]></title>
+  <link href="http://b-spoked.com/blog/categories/apps/atom.xml" rel="self"/>
   <link href="http://b-spoked.com/"/>
   <updated>2012-08-02T23:15:31+12:00</updated>
   <id>http://b-spoked.com/</id>
@@ -34,7 +34,7 @@ control the development and updating of the application - but in saying that the
 
 
 <ul>
-<li>Use full complement of native functions such as camera, accelerometor, address book &#8230;</li>
+<li>Use full complement of native functions such as camera, accelerometor, address book ...</li>
 <li>You can use storage on the phone for any photos/files.</li>
 <li>The app will run faster.</li>
 <li>App store approval process can hinder - while it helps monitor the quility it also can causes big headaches when rapidly developing new functionality.</li>
@@ -46,12 +46,12 @@ control the development and updating of the application - but in saying that the
 <h3>Web Apps</h3>
 
 
-<p>With web technologies getting far richer there aren&#8217;t many things that you can&#8217;t do these days.</p>
+<p>With web technologies getting far richer there aren't many things that you can't do these days.</p>
 
 
 <ul>
 <li>Create the app once for all platforms - you are targeting the phones browser so you can get greater coverage with one version of your app.</li>
-<li>Quicker and easier to update - you can very quickly publish changes and fixes to your app as they aren&#8217;t held up by app stores.</li>
+<li>Quicker and easier to update - you can very quickly publish changes and fixes to your app as they aren't held up by app stores.</li>
 </ul>
 
 
@@ -64,20 +64,7 @@ control the development and updating of the application - but in saying that the
 This can help with the issue of creating apps that work on multiple devices - which can be a blessing depending on the audience of your app.</p>
 
 
-<p><video width='640' height='320' preload='none' controls poster=''><source src='http://www.youtube.com/watch?v=4f2Zky_YyyQ&feature=player_embedded' type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'/></video></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[I Love]]></title>
-    <link href="http://b-spoked.com/blog/2012/08/01/i-love/"/>
-    <updated>2012-08-01T22:41:00+12:00</updated>
-    <id>http://b-spoked.com/blog/2012/08/01/i-love</id>
-    <content type="html"><![CDATA[<p><strong>My Wife</strong> - she keeps me on an even keel and is beautiful. What more could you ask for? She does insist that the dirty old pirate Johnny Depp is actually who she planned to marry :)<p>
-<p><strong>My Kids</strong> - crazy and fun - crazy fun maybe :)<p>
-<p><strong>My Mates</strong> - they get me out on my bike and together we are like a gang of kids again. Skids and wheelies are still cool.<p>
-<p><strong>My Peers</strong> - coders / hackers / engineers - what ever you call them they are an awsome bunch really. A very giving group that achieve amazing things and more often than not let others benefit for free. Keep up the good work!<p>
-
+<p><video width='640' height='320' preload='none' controls poster=''><source src='http://www.youtube.com/watch?v=4f2Zky_YyyQ&amp;feature=player_embedded' type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'/></video></p>
 ]]></content>
   </entry>
   
