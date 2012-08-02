@@ -4,7 +4,7 @@
   <title><![CDATA[Category: phone | B-Spoked]]></title>
   <link href="http://b-spoked.com/blog/categories/phone/atom.xml" rel="self"/>
   <link href="http://b-spoked.com/"/>
-  <updated>2012-08-02T23:15:31+12:00</updated>
+  <updated>2012-08-02T23:18:10+12:00</updated>
   <id>http://b-spoked.com/</id>
   <author>
     <name><![CDATA[B-Spoked]]></name>
@@ -21,7 +21,7 @@
     <content type="html"><![CDATA[<p>When you think about having an app developed there are options about how the app can be developed that can be worth considering before you jump in.</p>
 
 
-<p>Having created apps both ways listed below there are definetly benefits to each. For me personallly my prefernce is web apps because I can more easily
+<p>Having created apps both ways listed below there are definitely benefits to each. For me personally my preference is web apps because I can more easily
 control the development and updating of the application - but in saying that there are many applications that are not suited to the web application approach.</p>
 
 
@@ -30,14 +30,14 @@ control the development and updating of the application - but in saying that the
 <h3>Native Apps</h3>
 
 
-<p>Native apps are were you create the app using the devices native development language which differ on the iPhone, Andriod and other devices.</p>
+<p>Native apps are were you create the app using the devices native development language which differ on the iPhone, Android and other devices.</p>
 
 
 <ul>
-<li>Use full complement of native functions such as camera, accelerometor, address book ...</li>
+<li>Use full complement of native functions such as camera, accelerometer, address book ...</li>
 <li>You can use storage on the phone for any photos/files.</li>
 <li>The app will run faster.</li>
-<li>App store approval process can hinder - while it helps monitor the quility it also can causes big headaches when rapidly developing new functionality.</li>
+<li>App store approval process can hinder - while it helps monitor the quality it also can causes big headaches when rapidly developing new functionality.</li>
 </ul>
 
 
@@ -60,7 +60,7 @@ control the development and updating of the application - but in saying that the
 <h3>Other options</h3>
 
 
-<p>There are alwasy other options :) With phone apps you can create a web app and then using certain tools convert it to a native app.
+<p>There are always other options :) With phone apps you can create a web app and then using certain tools convert it to a native app.
 This can help with the issue of creating apps that work on multiple devices - which can be a blessing depending on the audience of your app.</p>
 
 
