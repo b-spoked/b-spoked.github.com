@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: buildings | B-Spoked]]></title>
+  <link href="http://b-spoked.com/blog/categories/buildings/atom.xml" rel="self"/>
+  <link href="http://b-spoked.com/"/>
+  <updated>2012-08-09T22:49:35+12:00</updated>
+  <id>http://b-spoked.com/</id>
+  <author>
+    <name><![CDATA[B-Spoked]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[3 Important choices when creating your App]]></title>
+    <link href="http://b-spoked.com/blog/2012/08/09/3-important-choices-when-creating-your-app/"/>
+    <updated>2012-08-09T21:59:00+12:00</updated>
+    <id>http://b-spoked.com/blog/2012/08/09/3-important-choices-when-creating-your-app</id>
+    <content type="html"><![CDATA[<p>I have been dealing with a client recently that started their app project with great gusto and a 'it needs to be done yesterday'
+attitude that is very common. I was to build the UI for them using thier existing app as a base - now that we have gone passed thier imposed deadline of having the app 'done'.
+I gave them a call to see how it was all going - well it seemed to be comming un-stuck at the seams! </p>
+
+
+<p>So what questions should they have thought while they built thier app?</p>
+
+
+<!-- more -->
+
+
+
+
+<ol>
+<li>
+<h3>Who is your app for?<h3>
+<p></p>
+</li>
+
+<li>
+<h3>What platforms will you target?</h3>
+<p></p>
+</li>
+
+<li>
+<h3>Will it continue?</h3>
+<p></p>
+</li>
+</ol>
+
+]]></content>
+  </entry>
+  
+</feed>
