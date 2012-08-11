@@ -4,7 +4,7 @@
   <title><![CDATA[B-Spoked]]></title>
   <link href="http://b-spoked.com/atom.xml" rel="self"/>
   <link href="http://b-spoked.com/"/>
-  <updated>2012-08-11T22:40:27+12:00</updated>
+  <updated>2012-08-11T22:49:01+12:00</updated>
   <id>http://b-spoked.com/</id>
   <author>
     <name><![CDATA[B-Spoked]]></name>
@@ -25,6 +25,31 @@ I also will include some usefull add-ins I have used in conjunction to JQuery Mo
 
 
 <!-- more -->
+
+
+<h2>Thougths</h2>
+
+
+<p>Great for quick prototypes.</p>
+
+
+<p>Easy to get started and understand.</p>
+
+
+
+
+<h2>Useful</h2>
+
+
+<p><a href="http://fortawesome.github.com/Font-Awesome" target="_blank">Fontawsome: </a></p>
+
+
+<p><a href="www.photoswipe.com" target="_blank">Photoswipe: </a></p>
+
+
+<p><a href="http://code.google.com/p/jquery-ui-map/" target="_blank">jquery-ui-map: </a></p>
+
+
 
 ]]></content>
   </entry>
