@@ -4,7 +4,7 @@
   <title><![CDATA[Category: technical, | B-Spoked]]></title>
   <link href="http://b-spoked.com/blog/categories/technical-/atom.xml" rel="self"/>
   <link href="http://b-spoked.com/"/>
-  <updated>2012-08-11T22:49:01+12:00</updated>
+  <updated>2012-08-14T20:54:03+12:00</updated>
   <id>http://b-spoked.com/</id>
   <author>
     <name><![CDATA[B-Spoked]]></name>
@@ -18,7 +18,7 @@
     <link href="http://b-spoked.com/blog/2012/08/11/jquery-mobile-app-development/"/>
     <updated>2012-08-11T13:18:00+12:00</updated>
     <id>http://b-spoked.com/blog/2012/08/11/jquery-mobile-app-development</id>
-    <content type="html"><![CDATA[<p>I have been using JQuery Mobile for about a year now so I thought I would write up my thoughts on it.
+    <content type="html"><![CDATA[<p>I have been using <a href="http://jquerymobile.com" target="_blank">JQuery Mobile</a> for about a year now so I thought I would write up my thoughts on it.
 I also will include some usefull add-ins I have used in conjunction to JQuery Mobile in my development travels.</p>
 
 
@@ -27,29 +27,73 @@ I also will include some usefull add-ins I have used in conjunction to JQuery Mo
 <!-- more -->
 
 
-<h2>Thougths</h2>
+<h2>Reasons to go there</h2>
 
 
-<p>Great for quick prototypes.</p>
+<p><strong>Prototypes:</strong> Great for quick prototypes.</p>
 
 
-<p>Easy to get started and understand.</p>
+<p>Becuase it is so quick to get started with a JQuery Mobile project I will often use it to create quick prototypes around a concept I am working on.
+While the final product may end out being created with a different technology if you need to quickly get something running to help visualise an idea then
+JQuery Mobile will definatly be your friend.</p>
 
 
 
 
-<h2>Useful</h2>
+<p><strong>Ease of learning:</strong> Easy to get started and understand.</p>
 
 
-<p><a href="http://fortawesome.github.com/Font-Awesome" target="_blank">Fontawsome: </a></p>
+<p>As long as you know a bit of simple html and can follow the setup instructions given you can get rolling fairly quickly with this simple framework.
+The docs are relativley easy to follow and is a good deal of ideas flowing in place like stackoverflow. Oh and there is the <a href="http://jquerymobile.com/themeroller/" target="_blank">provided theme roller</a>
+to really help get things moving.
+</p>
 
 
-<p><a href="www.photoswipe.com" target="_blank">Photoswipe: </a></p>
 
 
-<p><a href="http://code.google.com/p/jquery-ui-map/" target="_blank">jquery-ui-map: </a></p>
+<h2>Reason not to go there</h2>
 
 
+<p><strong>Your a control freak:</strong> ok maybe a little strong :)</p>
+
+
+<p>Using the JQuery Mobile framework things can begin to all look a bit the same, and if you what fine control over the look of your app you would be better served
+looking else where rather than fight  with it.</p>
+
+
+
+
+<h2>Projects I found useful</h2>
+
+
+
+
+<h3>Icons</h3>
+
+
+<p><strong></strong><a href="http://fortawesome.github.com/Font-Awesome" target="_blank">Fontawsome</a></p>
+
+
+
+
+<h3>Image Gallery</h3>
+
+
+<p><strong></strong><a href="www.photoswipe.com" target="_blank">Photoswipe</a></p>
+
+
+<h3>Maps</h3>
+
+
+<p><strong></strong><a href="http://code.google.com/p/jquery-ui-map/" target="_blank">jquery-ui-map</a></p>
+
+
+
+
+<h3>Making it native</h3>
+
+
+<p><a href="http://phonegap.com/" target="_blank">PhoneGap</a></p>
 
 ]]></content>
   </entry>
