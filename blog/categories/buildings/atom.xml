@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: buildings | B-Spoked]]></title>
-  <link href="http://b-spoked.com/blog/blog/categories/buildings/atom.xml" rel="self"/>
-  <link href="http://b-spoked.com/blog/"/>
-  <updated>2012-09-19T22:45:47+12:00</updated>
-  <id>http://b-spoked.com/blog/</id>
+  <link href="http://b-spoked.com/blog/categories/buildings/atom.xml" rel="self"/>
+  <link href="http://b-spoked.com/"/>
+  <updated>2012-09-19T22:50:22+12:00</updated>
+  <id>http://b-spoked.com/</id>
   <author>
     <name><![CDATA[B-Spoked]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[3 Important choices when creating your App]]></title>
-    <link href="http://b-spoked.com/blog/blog/2012/08/09/3-important-choices-when-creating-your-app/"/>
+    <link href="http://b-spoked.com/blog/2012/08/09/3-important-choices-when-creating-your-app/"/>
     <updated>2012-08-09T21:59:00+12:00</updated>
-    <id>http://b-spoked.com/blog/blog/2012/08/09/3-important-choices-when-creating-your-app</id>
+    <id>http://b-spoked.com/blog/2012/08/09/3-important-choices-when-creating-your-app</id>
     <content type="html"><![CDATA[<p>If you are considering building aor having an app created for you here are a couple of pointers of what you should think about before getting stuck in.</p>
 
 

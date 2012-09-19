@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[B-Spoked]]></title>
-  <link href="http://b-spoked.com/blog/atom.xml" rel="self"/>
-  <link href="http://b-spoked.com/blog/"/>
-  <updated>2012-09-19T22:45:47+12:00</updated>
-  <id>http://b-spoked.com/blog/</id>
+  <link href="http://b-spoked.com/atom.xml" rel="self"/>
+  <link href="http://b-spoked.com/"/>
+  <updated>2012-09-19T22:50:22+12:00</updated>
+  <id>http://b-spoked.com/</id>
   <author>
     <name><![CDATA[B-Spoked]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[JQuery Mobile App Development]]></title>
-    <link href="http://b-spoked.com/blog/blog/2012/08/11/jquery-mobile-app-development/"/>
+    <link href="http://b-spoked.com/blog/2012/08/11/jquery-mobile-app-development/"/>
     <updated>2012-08-11T13:18:00+12:00</updated>
-    <id>http://b-spoked.com/blog/blog/2012/08/11/jquery-mobile-app-development</id>
+    <id>http://b-spoked.com/blog/2012/08/11/jquery-mobile-app-development</id>
     <content type="html"><![CDATA[<p>I have been using <a href="http://jquerymobile.com" target="_blank">JQuery Mobile</a> for about a year now so I thought I would write up my thoughts on it.
 I also will include some useful add-ins I have used in conjunction to JQuery Mobile in my development travels.</p>
 
@@ -113,9 +113,9 @@ move to a native app for the target phones or use a technology such as PhoneGap 
   
   <entry>
     <title type="html"><![CDATA[3 Important choices when creating your App]]></title>
-    <link href="http://b-spoked.com/blog/blog/2012/08/09/3-important-choices-when-creating-your-app/"/>
+    <link href="http://b-spoked.com/blog/2012/08/09/3-important-choices-when-creating-your-app/"/>
     <updated>2012-08-09T21:59:00+12:00</updated>
-    <id>http://b-spoked.com/blog/blog/2012/08/09/3-important-choices-when-creating-your-app</id>
+    <id>http://b-spoked.com/blog/2012/08/09/3-important-choices-when-creating-your-app</id>
     <content type="html"><![CDATA[<p>If you are considering building aor having an app created for you here are a couple of pointers of what you should think about before getting stuck in.</p>
 
 
@@ -151,9 +151,9 @@ many of the clients aspired to own an iPhone the phones thier work provided were
   
   <entry>
     <title type="html"><![CDATA[What Is The Big Deal About Apps]]></title>
-    <link href="http://b-spoked.com/blog/blog/2012/08/04/what-is-the-big-deal-about-apps/"/>
+    <link href="http://b-spoked.com/blog/2012/08/04/what-is-the-big-deal-about-apps/"/>
     <updated>2012-08-04T22:58:00+12:00</updated>
-    <id>http://b-spoked.com/blog/blog/2012/08/04/what-is-the-big-deal-about-apps</id>
+    <id>http://b-spoked.com/blog/2012/08/04/what-is-the-big-deal-about-apps</id>
     <content type="html"><![CDATA[<p>Over the last few years there has been ever increasing talk about phone apps, especially with the iPhone app store, and it seems they are often talked about in
 almost mythical terms - like an app is going to create world peace or solve world hunger.</p>
 
@@ -176,9 +176,9 @@ there was a glut of those websites with flashing titles and buttons all over the
   
   <entry>
     <title type="html"><![CDATA[App or Crap]]></title>
-    <link href="http://b-spoked.com/blog/blog/2012/08/02/app-or-crap/"/>
+    <link href="http://b-spoked.com/blog/2012/08/02/app-or-crap/"/>
     <updated>2012-08-02T23:45:00+12:00</updated>
-    <id>http://b-spoked.com/blog/blog/2012/08/02/app-or-crap</id>
+    <id>http://b-spoked.com/blog/2012/08/02/app-or-crap</id>
     <content type="html"><![CDATA[<p>Come on app developers - just because you can doesn&#8217;t mean that you should.<p>
 <p>I was having a good discussion with some of the people I do some work with at
 a local design agency and we were talking about the huge number of applications that are available to us. We then started listing off some of the absolute clangers
@@ -191,9 +191,9 @@ So come on people - have some pride and don&#8217;t create crap.</p>
   
   <entry>
     <title type="html"><![CDATA[What Types Of Phone Apps Are There]]></title>
-    <link href="http://b-spoked.com/blog/blog/2012/08/02/ways-to-create-phone-apps/"/>
+    <link href="http://b-spoked.com/blog/2012/08/02/ways-to-create-phone-apps/"/>
     <updated>2012-08-02T20:16:00+12:00</updated>
-    <id>http://b-spoked.com/blog/blog/2012/08/02/ways-to-create-phone-apps</id>
+    <id>http://b-spoked.com/blog/2012/08/02/ways-to-create-phone-apps</id>
     <content type="html"><![CDATA[<p>When you think about having an app developed there are options about how the app can be developed that can be worth considering before you jump in.</p>
 
 
@@ -254,9 +254,9 @@ This can help with the issue of creating apps that work on multiple devices - so
   
   <entry>
     <title type="html"><![CDATA[I Love]]></title>
-    <link href="http://b-spoked.com/blog/blog/2012/08/01/i-love/"/>
+    <link href="http://b-spoked.com/blog/2012/08/01/i-love/"/>
     <updated>2012-08-01T22:41:00+12:00</updated>
-    <id>http://b-spoked.com/blog/blog/2012/08/01/i-love</id>
+    <id>http://b-spoked.com/blog/2012/08/01/i-love</id>
     <content type="html"><![CDATA[<p><strong>My Wife</strong> - she keeps me on an even keel and is beautiful. What more could you ask for? She does insist that the dirty old pirate Johnny Depp is actually who she planned to marry :)<p>
 <p><strong>My Kids</strong> - crazy and fun - crazy fun maybe :)<p>
 <p><strong>My Mates</strong> - they get me out on my bike and together we are like a gang of kids again. Skids and wheelies are still cool.<p>
