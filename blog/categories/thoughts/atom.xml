@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: thoughts | B-Spoked]]></title>
-  <link href="http://b-spoked.com/blog/categories/thoughts/atom.xml" rel="self"/>
-  <link href="http://b-spoked.com/"/>
-  <updated>2012-09-19T22:20:56+12:00</updated>
-  <id>http://b-spoked.com/</id>
+  <link href="http://b-spoked.com/blog/blog/categories/thoughts/atom.xml" rel="self"/>
+  <link href="http://b-spoked.com/blog/"/>
+  <updated>2012-09-19T22:30:28+12:00</updated>
+  <id>http://b-spoked.com/blog/</id>
   <author>
     <name><![CDATA[B-Spoked]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[App or Crap]]></title>
-    <link href="http://b-spoked.com/blog/2012/08/02/app-or-crap/"/>
+    <link href="http://b-spoked.com/blog/blog/2012/08/02/app-or-crap/"/>
     <updated>2012-08-02T23:45:00+12:00</updated>
-    <id>http://b-spoked.com/blog/2012/08/02/app-or-crap</id>
+    <id>http://b-spoked.com/blog/blog/2012/08/02/app-or-crap</id>
     <content type="html"><![CDATA[<p>Come on app developers - just because you can doesn't mean that you should.<p>
 <!-- more -->
 <p>I was having a good discussion with some of the people I do some work with at
@@ -31,9 +31,9 @@ So come on people - have some pride and don't create crap.</p>
   
   <entry>
     <title type="html"><![CDATA[I Love]]></title>
-    <link href="http://b-spoked.com/blog/2012/08/01/i-love/"/>
+    <link href="http://b-spoked.com/blog/blog/2012/08/01/i-love/"/>
     <updated>2012-08-01T22:41:00+12:00</updated>
-    <id>http://b-spoked.com/blog/2012/08/01/i-love</id>
+    <id>http://b-spoked.com/blog/blog/2012/08/01/i-love</id>
     <content type="html"><![CDATA[<p><strong>My Wife</strong> - she keeps me on an even keel and is beautiful. What more could you ask for? She does insist that the dirty old pirate Johnny Depp is actually who she planned to marry :)<p>
 <p><strong>My Kids</strong> - crazy and fun - crazy fun maybe :)<p>
 <p><strong>My Mates</strong> - they get me out on my bike and together we are like a gang of kids again. Skids and wheelies are still cool.<p>

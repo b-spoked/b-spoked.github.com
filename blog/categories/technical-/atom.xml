@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: technical, | B-Spoked]]></title>
-  <link href="http://b-spoked.com/blog/categories/technical-/atom.xml" rel="self"/>
-  <link href="http://b-spoked.com/"/>
-  <updated>2012-09-19T22:20:56+12:00</updated>
-  <id>http://b-spoked.com/</id>
+  <link href="http://b-spoked.com/blog/blog/categories/technical-/atom.xml" rel="self"/>
+  <link href="http://b-spoked.com/blog/"/>
+  <updated>2012-09-19T22:30:28+12:00</updated>
+  <id>http://b-spoked.com/blog/</id>
   <author>
     <name><![CDATA[B-Spoked]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[JQuery Mobile App Development]]></title>
-    <link href="http://b-spoked.com/blog/2012/08/11/jquery-mobile-app-development/"/>
+    <link href="http://b-spoked.com/blog/blog/2012/08/11/jquery-mobile-app-development/"/>
     <updated>2012-08-11T13:18:00+12:00</updated>
-    <id>http://b-spoked.com/blog/2012/08/11/jquery-mobile-app-development</id>
+    <id>http://b-spoked.com/blog/blog/2012/08/11/jquery-mobile-app-development</id>
     <content type="html"><![CDATA[<p>I have been using <a href="http://jquerymobile.com" target="_blank">JQuery Mobile</a> for about a year now so I thought I would write up my thoughts on it.
 I also will include some useful add-ins I have used in conjunction to JQuery Mobile in my development travels.</p>
 

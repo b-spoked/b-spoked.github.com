@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: phone | B-Spoked]]></title>
-  <link href="http://b-spoked.com/blog/categories/phone/atom.xml" rel="self"/>
-  <link href="http://b-spoked.com/"/>
-  <updated>2012-09-19T22:20:56+12:00</updated>
-  <id>http://b-spoked.com/</id>
+  <link href="http://b-spoked.com/blog/blog/categories/phone/atom.xml" rel="self"/>
+  <link href="http://b-spoked.com/blog/"/>
+  <updated>2012-09-19T22:30:28+12:00</updated>
+  <id>http://b-spoked.com/blog/</id>
   <author>
     <name><![CDATA[B-Spoked]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[What Is The Big Deal About Apps]]></title>
-    <link href="http://b-spoked.com/blog/2012/08/04/what-is-the-big-deal-about-apps/"/>
+    <link href="http://b-spoked.com/blog/blog/2012/08/04/what-is-the-big-deal-about-apps/"/>
     <updated>2012-08-04T22:58:00+12:00</updated>
-    <id>http://b-spoked.com/blog/2012/08/04/what-is-the-big-deal-about-apps</id>
+    <id>http://b-spoked.com/blog/blog/2012/08/04/what-is-the-big-deal-about-apps</id>
     <content type="html"><![CDATA[<p>Over the last few years there has been ever increasing talk about phone apps, especially with the iPhone app store, and it seems they are often talked about in
 almost mythical terms - like an app is going to create world peace or solve world hunger.</p>
 
@@ -41,9 +41,9 @@ there was a glut of those websites with flashing titles and buttons all over the
   
   <entry>
     <title type="html"><![CDATA[What Types Of Phone Apps Are There]]></title>
-    <link href="http://b-spoked.com/blog/2012/08/02/ways-to-create-phone-apps/"/>
+    <link href="http://b-spoked.com/blog/blog/2012/08/02/ways-to-create-phone-apps/"/>
     <updated>2012-08-02T20:16:00+12:00</updated>
-    <id>http://b-spoked.com/blog/2012/08/02/ways-to-create-phone-apps</id>
+    <id>http://b-spoked.com/blog/blog/2012/08/02/ways-to-create-phone-apps</id>
     <content type="html"><![CDATA[<p>When you think about having an app developed there are options about how the app can be developed that can be worth considering before you jump in.</p>
 
 
