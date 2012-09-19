@@ -4,7 +4,7 @@
   <title><![CDATA[B-Spoked]]></title>
   <link href="http://b-spoked.com/blog/atom.xml" rel="self"/>
   <link href="http://b-spoked.com/blog/"/>
-  <updated>2012-09-19T22:41:03+12:00</updated>
+  <updated>2012-09-19T22:45:47+12:00</updated>
   <id>http://b-spoked.com/blog/</id>
   <author>
     <name><![CDATA[B-Spoked]]></name>
@@ -22,9 +22,6 @@
 I also will include some useful add-ins I have used in conjunction to JQuery Mobile in my development travels.</p>
 
 
-
-
-<!-- more -->
 
 
 <h2>Reasons to go there</h2>
@@ -122,7 +119,6 @@ move to a native app for the target phones or use a technology such as PhoneGap 
     <content type="html"><![CDATA[<p>If you are considering building aor having an app created for you here are a couple of pointers of what you should think about before getting stuck in.</p>
 
 
-<!-- more -->
 
 
 <p>I have been dealing with a client recently that started their app project with great gusto and a &#8216;it needs to be built yesterday&#8217;
@@ -162,7 +158,6 @@ many of the clients aspired to own an iPhone the phones thier work provided were
 almost mythical terms - like an app is going to create world peace or solve world hunger.</p>
 
 
-<!-- more -->
 
 
 <p>My parents, probably along with many in their generation, have recently entered the world of smart phones and apps with gusto. Its cool to watch them get excited over all of these apps
@@ -185,7 +180,6 @@ there was a glut of those websites with flashing titles and buttons all over the
     <updated>2012-08-02T23:45:00+12:00</updated>
     <id>http://b-spoked.com/blog/blog/2012/08/02/app-or-crap</id>
     <content type="html"><![CDATA[<p>Come on app developers - just because you can doesn&#8217;t mean that you should.<p>
-<!-- more -->
 <p>I was having a good discussion with some of the people I do some work with at
 a local design agency and we were talking about the huge number of applications that are available to us. We then started listing off some of the absolute clangers
 we had installed on our phone - and then promptly un-installed.</p>
@@ -207,7 +201,6 @@ So come on people - have some pride and don&#8217;t create crap.</p>
 control the development and updating of the application - but in saying that there are many applications that are not suited to the web application approach.</p>
 
 
-<!-- more -->
 
 
 <h3>Native Apps</h3>
