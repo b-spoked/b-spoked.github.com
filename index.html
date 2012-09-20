@@ -1,89 +1,138 @@
 
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
-	<meta charset="utf-8">
-	<title>Blog - B-Spoked</title>
-	<meta name="author" content="B-Spoked">
+  <meta charset="utf-8">
+  <title>B-Spoked</title>
+  <meta name="author" content="B-Spoked">
 
-	
-	<meta name="description" content="I have been using JQuery Mobile for about a year now so I thought I would write up my thoughts on it.
-I also will include some useful add-ins I have &hellip;">
-	
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="description" content="Crafted Web Apps that enhance rather than distract.">
+  
 
-	<link href="/atom.xml" rel="alternate" title="B-Spoked" type="application/atom+xml">
-	<link rel="canonical" href="">
-	<link href="/favicon.png" rel="shortcut icon">
-	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-	
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://b-spoked.com">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/bootstrap/bootstrap.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/stylesheets/bootstrap/responsive.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/stylesheets/syntax/syntax.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <style type="text/css">
+    body {
+      padding-bottom: 40px;
+    }
+    h1 {
+      margin-bottom: 15px;
+    }
+    img {
+      max-width: 100%;
+    }
+    .sharing, .meta, .pager {
+      margin: 20px 0px 20px 0px;
+    }
+    .page-footer p {
+      text-align: center;
+    }
+  </style>
+  <script src="/javascripts/libs/jquery.js"></script>
+  <script src="/javascripts/libs/modernizr-2.0.js"></script>
+  <script src="/javascripts/libs/bootstrap.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="B-Spoked" type="application/atom+xml">
+  
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-33862221-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
 </head>
 
 <body   >
+  <nav role="navigation"><div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
 
-	<header id="header" class="inner"><h1><a href="/">B-Spoked</a></h1>
-<nav id="main-nav"><ul class="main">
-      <li><a href="">Home</a></li>      
-      <li><a href="/about">About</a></li>
-      <li><a href="/archives">Archives</a></li>
+      <a class="brand" href="/">B-Spoked</a>
+
+      <div class="nav-collapse">
+        <ul class="nav">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
 </ul>
-</nav>
-<nav id="mobile-nav">
-	<div class="alignleft menu">
-		<a class="button">Menu</a>
-		<div class="container"><ul class="main">
-      <li><a href="">Home</a></li>      
-      <li><a href="/about">About</a></li>
-      <li><a href="/archives">Archives</a></li>
-</ul>
+
+
+        <ul class="nav pull-right" data-subscription="rss">
+          <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+          
+        </ul>
+
+        
+          <form class="pull-right navbar-search" action="http://google.com/search" method="get">
+            <fieldset role="search">
+              <input type="hidden" name="q" value="site:b-spoked.com" />
+              <input class="search-query" type="text" name="q" results="0" placeholder="Search"/>
+            </fieldset>
+          </form>
+        
+      </div>
+    </div>
+  </div>
 </div>
-	</div>
-	<div class="alignright search">
-		<a class="button"></a>
-		<div class="container">
-			<form action="http://google.com/search" method="get">
-				<input type="text" name="q" results="0">
-				<input type="hidden" name="q" value="site:b-spoked.com">
-			</form>
-		</div>
-	</div>
 </nav>
-<nav id="sub-nav" class="alignright">
-	<div class="social">
-		
-		
-		
-		
-		<a class="github" href="https://github.com/b-spoked" title="GitHub">GitHub</a>
-		
-		
-		
-		
-		
-		<a class="rss" href="/atom.xml" title="RSS">RSS</a>
-		
-	</div>
-	<form class="search" action="http://google.com/search" method="get">
-		<input class="alignright" type="text" name="q" results="0">
-		<input type="hidden" name="q" value="site:b-spoked.com">
-	</form>
-</nav>
-
-</header>
-	
-		
-	
-	<div id="content" class="inner"><div class="blog-index">
+  <div class="container">
+    <div class="row-fluid">
+      <div class="span9">
   
   
   
     <article>
       
-	<h1 class="title"><a href="/blog/2012/08/11/jquery-mobile-app-development/">JQuery Mobile App Development</a></h1>
-	<div class="entry-content">
-		<p>I have been using <a href="http://jquerymobile.com" target="_blank">JQuery Mobile</a> for about a year now so I thought I would write up my thoughts on it.
+  <header class="page-header">
+    
+      <h1 class="entry-title"><a href="/blog/2012/08/11/jquery-mobile-app-development/">JQuery Mobile App Development</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-08-11T13:18:00+12:00" pubdate data-updated="true">Aug 11<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I have been using <a href="http://jquerymobile.com" target="_blank">JQuery Mobile</a> for about a year now so I thought I would write up my thoughts on it.
 I also will include some useful add-ins I have used in conjunction to JQuery Mobile in my development travels.</p>
 
 
@@ -173,43 +222,42 @@ move to a native app for the target phones or use a technology such as PhoneGap 
 <p><a href="http://phonegap.com/" target="_blank">PhoneGap</a></p>
 <p>If you reach the point you need to go native (phone apps of course) then PhoneGap can be a great way to go.</p>
 
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
+</div>
+  
   
 
 
-<time datetime="2012-08-11T13:18:00+12:00" pubdate data-updated="true">Aug 11<span>th</span>, 2012</time></div>
-	<div class="tags">
-
-
-	<a class='category' href='/blog/categories/apps/'>apps</a>, <a class='category' href='/blog/categories/technical-/'>technical,</a>
-
-
-</div>
-	
-</div>
     </article>
   
   
     <article>
       
-	<h1 class="title"><a href="/blog/2012/08/09/3-important-choices-when-creating-your-app/">3 Important Choices When Creating Your App</a></h1>
-	<div class="entry-content">
-		<p>If you are considering building aor having an app created for you here are a couple of pointers of what you should think about before getting stuck in.</p>
+  <header class="page-header">
+    
+      <h1 class="entry-title"><a href="/blog/2012/08/09/3-important-choices-when-creating-your-app/">3 Important Choices When Creating Your App</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-08-09T21:59:00+12:00" pubdate data-updated="true">Aug 9<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>If you are considering building aor having an app created for you here are a couple of pointers of what you should think about before getting stuck in.</p>
 
 
 
@@ -239,43 +287,42 @@ many of the clients aspired to own an iPhone the phones thier work provided were
 <h3>Will it continue?</h3>
 <p>Is this a one-off app that will be put out but you don&#8217;t intend to upgrade or extends over time?</p>
 
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
+</div>
+  
   
 
 
-<time datetime="2012-08-09T21:59:00+12:00" pubdate data-updated="true">Aug 9<span>th</span>, 2012</time></div>
-	<div class="tags">
-
-
-	<a class='category' href='/blog/categories/apps/'>apps</a>, <a class='category' href='/blog/categories/buildings/'>buildings</a>
-
-
-</div>
-	
-</div>
     </article>
   
   
     <article>
       
-	<h1 class="title"><a href="/blog/2012/08/04/what-is-the-big-deal-about-apps/">What Is the Big Deal About Apps</a></h1>
-	<div class="entry-content">
-		<p>Over the last few years there has been ever increasing talk about phone apps, especially with the iPhone app store, and it seems they are often talked about in
+  <header class="page-header">
+    
+      <h1 class="entry-title"><a href="/blog/2012/08/04/what-is-the-big-deal-about-apps/">What Is the Big Deal About Apps</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-08-04T22:58:00+12:00" pubdate data-updated="true">Aug 4<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Over the last few years there has been ever increasing talk about phone apps, especially with the iPhone app store, and it seems they are often talked about in
 almost mythical terms - like an app is going to create world peace or solve world hunger.</p>
 
 
@@ -292,86 +339,84 @@ Being able to track your run or ride and look at it afterward, or do a bit of re
 <p>Now what about all those gimmicky apps you install and then feel dirty afterward? Well in the coming years <strong>as the pure novelty of apps wears off you will see a much higher quality and consistency of app</strong> in regards to both use and content. Because more and more the same will happen with apps as did with the web -  remember when
 there was a glut of those websites with flashing titles and buttons all over the show? </p>
 
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
+</div>
+  
   
 
 
-<time datetime="2012-08-04T22:58:00+12:00" pubdate data-updated="true">Aug 4<span>th</span>, 2012</time></div>
-	<div class="tags">
-
-
-	<a class='category' href='/blog/categories/apps/'>apps</a>, <a class='category' href='/blog/categories/phone/'>phone</a>
-
-
-</div>
-	
-</div>
     </article>
   
   
     <article>
       
-	<h1 class="title"><a href="/blog/2012/08/02/app-or-crap/">App or Crap</a></h1>
-	<div class="entry-content">
-		<p>Come on app developers - just because you can doesn&#8217;t mean that you should.<p>
+  <header class="page-header">
+    
+      <h1 class="entry-title"><a href="/blog/2012/08/02/app-or-crap/">App or Crap</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-08-02T23:45:00+12:00" pubdate data-updated="true">Aug 2<span>nd</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Come on app developers - just because you can doesn&#8217;t mean that you should.<p>
 <p>I was having a good discussion with some of the people I do some work with at
 a local design agency and we were talking about the huge number of applications that are available to us. We then started listing off some of the absolute clangers
 we had installed on our phone - and then promptly un-installed.</p>
 <p>While it is great to see the explosion in the area of app development so many of them are reeking of rip-off or &#8216;i wonder if i can turn a quick dollar&#8217; type apps.
 So come on people - have some pride and don&#8217;t create crap.</p>
 
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
+</div>
+  
   
 
 
-<time datetime="2012-08-02T23:45:00+12:00" pubdate data-updated="true">Aug 2<span>nd</span>, 2012</time></div>
-	<div class="tags">
-
-
-	<a class='category' href='/blog/categories/thoughts/'>thoughts</a>
-
-
-</div>
-	
-</div>
     </article>
   
   
     <article>
       
-	<h1 class="title"><a href="/blog/2012/08/02/ways-to-create-phone-apps/">What Types of Phone Apps Are There</a></h1>
-	<div class="entry-content">
-		<p>When you think about having an app developed there are options about how the app can be developed that can be worth considering before you jump in.</p>
+  <header class="page-header">
+    
+      <h1 class="entry-title"><a href="/blog/2012/08/02/ways-to-create-phone-apps/">What Types of Phone Apps Are There</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-08-02T20:16:00+12:00" pubdate data-updated="true">Aug 2<span>nd</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>When you think about having an app developed there are options about how the app can be developed that can be worth considering before you jump in.</p>
 
 
 <p>Having created apps both ways listed below there are definitely benefits to each. For me personally my preference is web apps because I can more easily
@@ -426,75 +471,96 @@ This can help with the issue of creating apps that work on multiple devices - so
 
 <iframe width="640" height="360" src="http://www.youtube.com/embed/4f2Zky_YyyQ" frameborder="0" allowfullscreen></iframe>
 
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
+</div>
+  
   
 
 
-<time datetime="2012-08-02T20:16:00+12:00" pubdate data-updated="true">Aug 2<span>nd</span>, 2012</time></div>
-	<div class="tags">
-
-
-	<a class='category' href='/blog/categories/apps/'>apps</a>, <a class='category' href='/blog/categories/phone/'>phone</a>
-
-
-</div>
-	
-</div>
     </article>
   
-  <div class="pagination">
+  <ul class="pager">
     
-      <a class="prev" href="/blog/page/2/">&larr; Older</a>
+    <li class="previous"><a href="/blog/page/2/">&larr; Older</a></li>
     
-    <a href="/blog/archives">Blog Archives</a>
+    <li><a href="/blog/archives">Blog Archives</a></li>
     
+  </ul>
+</div>
+<aside class="sidebar-nav span3">
+  
+    <section>
+  <h1>About Me</h1>
+  <p>A little something about me.</p>
+</section>
+<section class="well">
+  <ul id="recent_posts" class="nav nav-list">
+    <li class="nav-header">Recent Posts</li>
+    
+      <li class="post">
+        <a href="/blog/2012/08/11/jquery-mobile-app-development/">JQuery Mobile App Development</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/08/09/3-important-choices-when-creating-your-app/">3 Important choices when creating your App</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/08/04/what-is-the-big-deal-about-apps/">What Is The Big Deal About Apps</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/08/02/app-or-crap/">App or Crap</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/08/02/ways-to-create-phone-apps/">What Types Of Phone Apps Are There</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+  
+</aside>
+
+    </div>
   </div>
-</div>
-</div>
-	<footer id="footer" class="inner"><p><a href="mailto:jamie@almservices.co.nz?Subject=B-Spoked%20Query">Email Me</a></p>
-<p><a href="tel:006421653141">Call Me 0064-21-653141</a></p>
+  <footer role="contentinfo" class="page-footer"><hr>
 <p>
   Copyright &copy; 2012 - B-Spoked -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
+
 </footer>
-	<script src="/javascripts/slash.js"></script>
-<script src="/javascripts/jquery.fancybox.pack.js"></script>
-<script type="text/javascript">
-(function($){
-	$('.fancybox').fancybox();
-})(jQuery);
-</script> <!-- Delete or comment this line to disable Fancybox -->
+  
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 
 
 
 
-	<script type="text/javascript">
-		var _gaq = _gaq || [];
-		_gaq.push(['_setAccount', 'UA-33862221-1']);
-		_gaq.push(['_trackPageview']);
 
-		(function() {
-			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-		})();
-	</script>
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
 
 
 
