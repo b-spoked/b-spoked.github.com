@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[B-Spoked]]></title>
-  <link href="http://b-spoked.com/atom.xml" rel="self"/>
+  <title><![CDATA[Category: Webapps | B-Spoked]]></title>
+  <link href="http://b-spoked.com/blog/categories/webapps/atom.xml" rel="self"/>
   <link href="http://b-spoked.com/"/>
   <updated>2012-12-25T21:40:23+13:00</updated>
   <id>http://b-spoked.com/</id>
@@ -35,24 +35,6 @@
 <li><a href="http://www.mysql.com/">MySql - The general default DB I use</a></li>
 </ul>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Backbonejs - lessons learnt]]></title>
-    <link href="http://b-spoked.com/blog/2012/11/27/backbonejs-lessons-learnt/"/>
-    <updated>2012-11-27T21:39:00+13:00</updated>
-    <id>http://b-spoked.com/blog/2012/11/27/backbonejs-lessons-learnt</id>
-    <content type="html"><![CDATA[
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Backbonejs - handling relationships between models]]></title>
-    <link href="http://b-spoked.com/blog/2012/11/27/backbonejs-handling-relationships-between-models/"/>
-    <updated>2012-11-27T21:39:00+13:00</updated>
-    <id>http://b-spoked.com/blog/2012/11/27/backbonejs-handling-relationships-between-models</id>
-    <content type="html"><![CDATA[
 ]]></content>
   </entry>
   
