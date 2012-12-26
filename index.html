@@ -221,7 +221,164 @@
   </header>
 
 
-  <div class="entry-content">
+  <div class="entry-content"><p class="lead"></p>
+
+
+<p><code>
+var User = Backbone.Model.extend({</p>
+
+<pre><code>    defaults: {
+        id:'',
+        name: '',
+        email: '',
+        thumbnail: '',
+        newsletter:false,
+        updated_at : '',
+        todos: [],
+        recommended: []
+    },
+
+    urlRoot: "/api/index.php/user.json",
+
+    initialize: function() {
+
+        var self = this;
+
+        this.todos = new RelatedPlaceList(this.get('todos'));
+        this.todos.url = function () {
+            return self.urlRoot + '/todos/'+self.get('id');
+        };
+
+        this.recommended = new RelatedPlaceList(this.get('recommended'));
+        this.recommended.url = function () {
+            return self.urlRoot + '/recommended/'+self.get('id');
+        };
+
+    },
+    saveRelatedModels : function(){
+
+        var related_todos = this.todos.pluck('id');
+        var related_recommended = this.recommended.pluck('id'); 
+        this.save({id: this.id, todos: related_todos, recommended:related_recommended});
+    }
+});
+</code></pre>
+
+<p></code>
+<code>
+var Place = Backbone.Model.extend({</p>
+
+<pre><code>    defaults: {
+        id:0,
+        updated_at : '',
+        name: '',
+        description: '',
+        address: '',
+        distance: 0,
+        latitude: 0,
+        longitude: 0,
+        todousers: [],
+        recommendedusers: [],
+        canRemoveRecommended:false,
+        canRemoveTodo:false
+    },
+
+    urlRoot: "/api/index.php/place.json",
+
+    initialize: function() {
+
+        var self = this;
+
+        this.todousers = new RelatedUserList(this.get('todousers'));
+        this.todousers.url = function () {
+            return self.urlRoot + '/todousers/'+self.get('sid');
+        };
+
+        this.recommendedusers = new RelatedUserList(this.get('recommendedusers'));
+        this.recommendedusers.url = function () {
+            return self.urlRoot + '/recommendedusers/'+self.get('sid');
+        };
+
+    }
+
+});
+</code></pre>
+
+<p></code></p>
+
+<p><code>
+var RelatedPlaceList =  Backbone.Collection.extend({</p>
+
+<pre><code>model : Place,
+search : function(letters) {
+    if(letters == "")
+        return this;
+
+    var pattern = new RegExp(letters,"gi");
+        return _(this.filter( function(data) {
+            return pattern.test(data.get("name")) ||pattern.test(data.get("description"));
+            }));
+    }
+</code></pre>
+
+<p>});
+</code></p>
+
+<p><code></p>
+
+<p>app.PlaceView = Backbone.View.extend({</p>
+
+<pre><code>    //... is a list tag.
+    tagName:  'div',
+
+    className: 'span4 well well-small',
+
+    // Cache the template function for a single item.
+    template: _.template( $('#place-template').html() ),
+
+    // The DOM events specific to an item.
+    events: {
+        'click .bookmark' : 'addBookmark',
+        'click .recommend' : 'addRecommendation',
+        'click .on-todo-list' : 'showUsersToDo',
+        'click .recommend-by' : 'showUsersRecommend'
+    },
+    initialize: function() {
+        this.model.on( 'change', this.render, this );
+        this.model.todousers.on( 'reset', this.addUsersToDo, this );
+        this.model.recommendedusers.on( 'reset', this.addUsersRecommend, this );
+    },
+    showUsersToDo : function() {
+        this.model.todousers.fetch();
+        var todoId = '#todo_' + this.model.get('id');
+        $(todoId).slideToggle('slow');
+
+    },
+    showUsersRecommend : function() {
+        this.model.recommendedusers.fetch();
+        var recommendedId = '#recommended_' + this.model.get('id');
+        $(recommendedId).slideToggle('slow');
+    },
+
+    addBookmark : function() {
+        var userId = app.BrowsingUserSession.get('id');
+        if(app.Users.get(userId)){
+            app.Users.get(userId).todos.push(this.model);
+            app.Users.get(userId).saveRelatedModels();
+        }
+    },
+    addRecommendation : function() {
+
+        var userId = app.BrowsingUserSession.get('id');
+        if(app.Users.get(userId)){
+            app.Users.get(userId).recommended.push(this.model);
+            app.Users.get(userId).saveRelatedModels();
+        }
+    }
+});
+</code></pre>
+
+<p></code></p>
 </div>
   
   
