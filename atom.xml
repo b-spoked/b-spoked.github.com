@@ -4,7 +4,7 @@
   <title><![CDATA[B-Spoked]]></title>
   <link href="http://b-spoked.com/atom.xml" rel="self"/>
   <link href="http://b-spoked.com/"/>
-  <updated>2012-12-26T14:10:21+13:00</updated>
+  <updated>2012-12-26T14:17:32+13:00</updated>
   <id>http://b-spoked.com/</id>
   <author>
     <name><![CDATA[B-Spoked]]></name>
@@ -57,7 +57,7 @@
 
 
 
-<figure class='code'><figcaption><span>[User Model that has a relationship to places] [] </span></figcaption>
+<figure class='code'><figcaption><span>&#8220;User Model that has a relationship to places&#8221;  </span></figcaption>
  <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -135,125 +135,221 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p><code>
-The Place Model that has a relationship to Users that have recommended it or have it on their todo list</p>
 
-<p>var Place = Backbone.Model.extend({</p>
 
-<pre><code>    defaults: {
-        id:0,
-        updated_at : '',
-        name: '',
-        description: '',
-        address: '',
-        distance: 0,
-        latitude: 0,
-        longitude: 0,
-        todousers: [],
-        recommendedusers: [],
-        canRemoveRecommended:false,
-        canRemoveTodo:false
-    },
+<figure class='code'><figcaption><span>&#8220;Place Model that has a relationship to Users that have recommended it or have it on their todo list&#8221;  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">Place</span> <span class="o">=</span> <span class="nx">Backbone</span><span class="p">.</span><span class="nx">Model</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+</span><span class='line'>      
+</span><span class='line'>      <span class="nx">defaults</span><span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>          <span class="nx">id</span><span class="o">:</span><span class="mi">0</span><span class="p">,</span>
+</span><span class='line'>          <span class="nx">updated_at</span> <span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+</span><span class='line'>          <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+</span><span class='line'>          <span class="nx">description</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+</span><span class='line'>          <span class="nx">address</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+</span><span class='line'>          <span class="nx">distance</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+</span><span class='line'>          <span class="nx">latitude</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+</span><span class='line'>          <span class="nx">longitude</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+</span><span class='line'>          <span class="nx">todousers</span><span class="o">:</span> <span class="p">[],</span>
+</span><span class='line'>          <span class="nx">recommendedusers</span><span class="o">:</span> <span class="p">[],</span>
+</span><span class='line'>          <span class="nx">canRemoveRecommended</span><span class="o">:</span><span class="kc">false</span><span class="p">,</span>
+</span><span class='line'>          <span class="nx">canRemoveTodo</span><span class="o">:</span><span class="kc">false</span>
+</span><span class='line'>      <span class="p">},</span>
+</span><span class='line'>      
+</span><span class='line'>      <span class="nx">urlRoot</span><span class="o">:</span> <span class="s2">&quot;/api/index.php/place.json&quot;</span><span class="p">,</span>
+</span><span class='line'>      
+</span><span class='line'>      <span class="nx">initialize</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>          
+</span><span class='line'>          <span class="kd">var</span> <span class="nx">self</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+</span><span class='line'>          
+</span><span class='line'>          <span class="k">this</span><span class="p">.</span><span class="nx">todousers</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">RelatedUserList</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;todousers&#39;</span><span class="p">));</span>
+</span><span class='line'>          <span class="k">this</span><span class="p">.</span><span class="nx">todousers</span><span class="p">.</span><span class="nx">url</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>              <span class="k">return</span> <span class="nx">self</span><span class="p">.</span><span class="nx">urlRoot</span> <span class="o">+</span> <span class="s1">&#39;/todousers/&#39;</span><span class="o">+</span><span class="nx">self</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;sid&#39;</span><span class="p">);</span>
+</span><span class='line'>          <span class="p">};</span>
+</span><span class='line'>          
+</span><span class='line'>          <span class="k">this</span><span class="p">.</span><span class="nx">recommendedusers</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">RelatedUserList</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;recommendedusers&#39;</span><span class="p">));</span>
+</span><span class='line'>          <span class="k">this</span><span class="p">.</span><span class="nx">recommendedusers</span><span class="p">.</span><span class="nx">url</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>              <span class="k">return</span> <span class="nx">self</span><span class="p">.</span><span class="nx">urlRoot</span> <span class="o">+</span> <span class="s1">&#39;/recommendedusers/&#39;</span><span class="o">+</span><span class="nx">self</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;sid&#39;</span><span class="p">);</span>
+</span><span class='line'>          <span class="p">};</span>
+</span><span class='line'>          
+</span><span class='line'>      <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
 
-    urlRoot: "/api/index.php/place.json",
 
-    initialize: function() {
 
-        var self = this;
 
-        this.todousers = new RelatedUserList(this.get('todousers'));
-        this.todousers.url = function () {
-            return self.urlRoot + '/todousers/'+self.get('sid');
-        };
+<figure class='code'><figcaption><span>&#8220;The Related Place collection&#8221;   </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">RelatedPlaceList</span> <span class="o">=</span>  <span class="nx">Backbone</span><span class="p">.</span><span class="nx">Collection</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+</span><span class='line'>    <span class="nx">model</span> <span class="o">:</span> <span class="nx">Place</span><span class="p">,</span>
+</span><span class='line'>    <span class="nx">search</span> <span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">letters</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">if</span><span class="p">(</span><span class="nx">letters</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+</span><span class='line'>            <span class="k">return</span> <span class="k">this</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="kd">var</span> <span class="nx">pattern</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">RegExp</span><span class="p">(</span><span class="nx">letters</span><span class="p">,</span><span class="s2">&quot;gi&quot;</span><span class="p">);</span>
+</span><span class='line'>            <span class="k">return</span> <span class="nx">_</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>                <span class="k">return</span> <span class="nx">pattern</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">))</span> <span class="o">||</span><span class="nx">pattern</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;description&quot;</span><span class="p">));</span>
+</span><span class='line'>                <span class="p">}));</span>
+</span><span class='line'>      <span class="p">}</span>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
 
-        this.recommendedusers = new RelatedUserList(this.get('recommendedusers'));
-        this.recommendedusers.url = function () {
-            return self.urlRoot + '/recommendedusers/'+self.get('sid');
-        };
 
-    }
 
-});
-</code></pre>
 
-<p></code></p>
+<figure class='code'><figcaption><span>&#8220;View that allows you to add a recommendation or add it to your ToDo list&#8221;  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">app</span><span class="p">.</span><span class="nx">PlaceView</span> <span class="o">=</span> <span class="nx">Backbone</span><span class="p">.</span><span class="nx">View</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+</span><span class='line'>
+</span><span class='line'>      <span class="c1">//... is a list tag.</span>
+</span><span class='line'>      <span class="nx">tagName</span><span class="o">:</span>  <span class="s1">&#39;div&#39;</span><span class="p">,</span>
+</span><span class='line'>      
+</span><span class='line'>      <span class="nx">className</span><span class="o">:</span> <span class="s1">&#39;span4 well well-small&#39;</span><span class="p">,</span>
+</span><span class='line'>
+</span><span class='line'>      <span class="c1">// Cache the template function for a single item.</span>
+</span><span class='line'>      <span class="nx">template</span><span class="o">:</span> <span class="nx">_</span><span class="p">.</span><span class="nx">template</span><span class="p">(</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#place-template&#39;</span><span class="p">).</span><span class="nx">html</span><span class="p">()</span> <span class="p">),</span>
+</span><span class='line'>
+</span><span class='line'>      <span class="c1">// The DOM events specific to an item.</span>
+</span><span class='line'>      <span class="nx">events</span><span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>          <span class="s1">&#39;click .bookmark&#39;</span> <span class="o">:</span> <span class="s1">&#39;addBookmark&#39;</span><span class="p">,</span>
+</span><span class='line'>          <span class="s1">&#39;click .recommend&#39;</span> <span class="o">:</span> <span class="s1">&#39;addRecommendation&#39;</span><span class="p">,</span>
+</span><span class='line'>          <span class="s1">&#39;click .on-todo-list&#39;</span> <span class="o">:</span> <span class="s1">&#39;showUsersToDo&#39;</span><span class="p">,</span>
+</span><span class='line'>          <span class="s1">&#39;click .recommend-by&#39;</span> <span class="o">:</span> <span class="s1">&#39;showUsersRecommend&#39;</span>
+</span><span class='line'>      <span class="p">},</span>
+</span><span class='line'>      <span class="nx">initialize</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>          <span class="k">this</span><span class="p">.</span><span class="nx">model</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span> <span class="s1">&#39;change&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">render</span><span class="p">,</span> <span class="k">this</span> <span class="p">);</span>
+</span><span class='line'>          <span class="k">this</span><span class="p">.</span><span class="nx">model</span><span class="p">.</span><span class="nx">todousers</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span> <span class="s1">&#39;reset&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">addUsersToDo</span><span class="p">,</span> <span class="k">this</span> <span class="p">);</span>
+</span><span class='line'>          <span class="k">this</span><span class="p">.</span><span class="nx">model</span><span class="p">.</span><span class="nx">recommendedusers</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span> <span class="s1">&#39;reset&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">addUsersRecommend</span><span class="p">,</span> <span class="k">this</span> <span class="p">);</span>
+</span><span class='line'>      <span class="p">},</span>
+</span><span class='line'>      <span class="nx">showUsersToDo</span> <span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>          <span class="k">this</span><span class="p">.</span><span class="nx">model</span><span class="p">.</span><span class="nx">todousers</span><span class="p">.</span><span class="nx">fetch</span><span class="p">();</span>
+</span><span class='line'>          <span class="kd">var</span> <span class="nx">todoId</span> <span class="o">=</span> <span class="s1">&#39;#todo_&#39;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">model</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">);</span>
+</span><span class='line'>          <span class="nx">$</span><span class="p">(</span><span class="nx">todoId</span><span class="p">).</span><span class="nx">slideToggle</span><span class="p">(</span><span class="s1">&#39;slow&#39;</span><span class="p">);</span>
+</span><span class='line'>          
+</span><span class='line'>      <span class="p">},</span>
+</span><span class='line'>      <span class="nx">showUsersRecommend</span> <span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>          <span class="k">this</span><span class="p">.</span><span class="nx">model</span><span class="p">.</span><span class="nx">recommendedusers</span><span class="p">.</span><span class="nx">fetch</span><span class="p">();</span>
+</span><span class='line'>          <span class="kd">var</span> <span class="nx">recommendedId</span> <span class="o">=</span> <span class="s1">&#39;#recommended_&#39;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">model</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">);</span>
+</span><span class='line'>          <span class="nx">$</span><span class="p">(</span><span class="nx">recommendedId</span><span class="p">).</span><span class="nx">slideToggle</span><span class="p">(</span><span class="s1">&#39;slow&#39;</span><span class="p">);</span>
+</span><span class='line'>      <span class="p">},</span>
+</span><span class='line'>      
+</span><span class='line'>      <span class="nx">addBookmark</span> <span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>          <span class="kd">var</span> <span class="nx">userId</span> <span class="o">=</span> <span class="nx">app</span><span class="p">.</span><span class="nx">BrowsingUserSession</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">);</span>
+</span><span class='line'>          <span class="k">if</span><span class="p">(</span><span class="nx">app</span><span class="p">.</span><span class="nx">Users</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">userId</span><span class="p">)){</span>
+</span><span class='line'>              <span class="nx">app</span><span class="p">.</span><span class="nx">Users</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">userId</span><span class="p">).</span><span class="nx">todos</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">model</span><span class="p">);</span>
+</span><span class='line'>              <span class="nx">app</span><span class="p">.</span><span class="nx">Users</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">userId</span><span class="p">).</span><span class="nx">saveRelatedModels</span><span class="p">();</span>
+</span><span class='line'>          <span class="p">}</span>
+</span><span class='line'>      <span class="p">},</span>
+</span><span class='line'>      <span class="nx">addRecommendation</span> <span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>          
+</span><span class='line'>          <span class="kd">var</span> <span class="nx">userId</span> <span class="o">=</span> <span class="nx">app</span><span class="p">.</span><span class="nx">BrowsingUserSession</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">);</span>
+</span><span class='line'>          <span class="k">if</span><span class="p">(</span><span class="nx">app</span><span class="p">.</span><span class="nx">Users</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">userId</span><span class="p">)){</span>
+</span><span class='line'>              <span class="nx">app</span><span class="p">.</span><span class="nx">Users</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">userId</span><span class="p">).</span><span class="nx">recommended</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">model</span><span class="p">);</span>
+</span><span class='line'>              <span class="nx">app</span><span class="p">.</span><span class="nx">Users</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">userId</span><span class="p">).</span><span class="nx">saveRelatedModels</span><span class="p">();</span>
+</span><span class='line'>          <span class="p">}</span>
+</span><span class='line'>      <span class="p">}</span>
+</span><span class='line'>  <span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
 
-<p><code>
-The Related Place collection</p>
 
-<p>var RelatedPlaceList =  Backbone.Collection.extend({</p>
 
-<pre><code>model : Place,
-search : function(letters) {
-    if(letters == "")
-        return this;
-
-    var pattern = new RegExp(letters,"gi");
-        return _(this.filter( function(data) {
-            return pattern.test(data.get("name")) ||pattern.test(data.get("description"));
-            }));
-    }
-</code></pre>
-
-<p>});
-</code></p>
-
-<p><code>
-Place View that allows you to add a recommendation for the Place or add it to your ToDo list</p>
-
-<p>app.PlaceView = Backbone.View.extend({</p>
-
-<pre><code>    //... is a list tag.
-    tagName:  'div',
-
-    className: 'span4 well well-small',
-
-    // Cache the template function for a single item.
-    template: _.template( $('#place-template').html() ),
-
-    // The DOM events specific to an item.
-    events: {
-        'click .bookmark' : 'addBookmark',
-        'click .recommend' : 'addRecommendation',
-        'click .on-todo-list' : 'showUsersToDo',
-        'click .recommend-by' : 'showUsersRecommend'
-    },
-    initialize: function() {
-        this.model.on( 'change', this.render, this );
-        this.model.todousers.on( 'reset', this.addUsersToDo, this );
-        this.model.recommendedusers.on( 'reset', this.addUsersRecommend, this );
-    },
-    showUsersToDo : function() {
-        this.model.todousers.fetch();
-        var todoId = '#todo_' + this.model.get('id');
-        $(todoId).slideToggle('slow');
-
-    },
-    showUsersRecommend : function() {
-        this.model.recommendedusers.fetch();
-        var recommendedId = '#recommended_' + this.model.get('id');
-        $(recommendedId).slideToggle('slow');
-    },
-
-    addBookmark : function() {
-        var userId = app.BrowsingUserSession.get('id');
-        if(app.Users.get(userId)){
-            app.Users.get(userId).todos.push(this.model);
-            app.Users.get(userId).saveRelatedModels();
-        }
-    },
-    addRecommendation : function() {
-
-        var userId = app.BrowsingUserSession.get('id');
-        if(app.Users.get(userId)){
-            app.Users.get(userId).recommended.push(this.model);
-            app.Users.get(userId).saveRelatedModels();
-        }
-    }
-});
-</code></pre>
-
-<p></code></p>
 ]]></content>
   </entry>
   
