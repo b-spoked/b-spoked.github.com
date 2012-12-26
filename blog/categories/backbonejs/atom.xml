@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: backbonejs | B-Spoked]]></title>
+  <link href="http://b-spoked.com/blog/categories/backbonejs/atom.xml" rel="self"/>
+  <link href="http://b-spoked.com/"/>
+  <updated>2012-12-26T23:30:50+13:00</updated>
+  <id>http://b-spoked.com/</id>
+  <author>
+    <name><![CDATA[B-Spoked]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Backbonejs - handling relationships between models]]></title>
+    <link href="http://b-spoked.com/blog/2012/11/27/backbonejs-handling-relationships-between-models/"/>
+    <updated>2012-11-27T21:39:00+13:00</updated>
+    <id>http://b-spoked.com/blog/2012/11/27/backbonejs-handling-relationships-between-models</id>
+    <content type="html"><![CDATA[<p class="lead">While there are existing plug-ins to handle relationships I felt what I was trying to achieve was simple so came up with a basic solution.</p>
+
+
+
+
+<p>While this is more to jog my memory later it does include all the spinets I required to make it work. Feel free to get in touch with me if your interested in a similar solution.
+ The main goals I was trying to achieve were:
+    <ul>
+    <li>Simple key mapping</li>
+    <li>The ability to add and remove related models</li>
+    <li>Keeping things as simple and concise as possible</li>
+    </ul>
+</p>
+
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>User model that has a relationship to places  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="kd">var</span> <span class="nx">User</span> <span class="o">=</span> <span class="nx">Backbone</span><span class="p">.</span><span class="nx">Model</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span>    <span class="nx">defaults</span><span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">id</span><span class="o">:</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
+</span><span class='line'>        <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+</span><span class='line'>        <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+</span><span class='line'>        <span class="nx">thumbnail</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+</span><span class='line'>        <span class="nx">newsletter</span><span class="o">:</span><span class="kc">false</span><span class="p">,</span>
+</span><span class='line'>        <span class="nx">updated_at</span> <span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+</span><span class='line'>        <span class="nx">todos</span><span class="o">:</span> <span class="p">[],</span>
+</span><span class='line'>        <span class="nx">recommended</span><span class="o">:</span> <span class="p">[]</span>
+</span><span class='line'>    <span class="p">},</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nx">urlRoot</span><span class="o">:</span> <span class="s2">&quot;/api/index.php/user.json&quot;</span><span class="p">,</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nx">initialize</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="kd">var</span> <span class="nx">self</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="nx">todos</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">RelatedPlaceList</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;todos&#39;</span><span class="p">));</span>
+</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="nx">todos</span><span class="p">.</span><span class="nx">url</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>            <span class="k">return</span> <span class="nx">self</span><span class="p">.</span><span class="nx">urlRoot</span> <span class="o">+</span> <span class="s1">&#39;/todos/&#39;</span><span class="o">+</span><span class="nx">self</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">);</span>
+</span><span class='line'>        <span class="p">};</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="nx">recommended</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">RelatedPlaceList</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;recommended&#39;</span><span class="p">));</span>
+</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="nx">recommended</span><span class="p">.</span><span class="nx">url</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>            <span class="k">return</span> <span class="nx">self</span><span class="p">.</span><span class="nx">urlRoot</span> <span class="o">+</span> <span class="s1">&#39;/recommended/&#39;</span><span class="o">+</span><span class="nx">self</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">);</span>
+</span><span class='line'>        <span class="p">};</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="p">},</span>
+</span><span class='line'>    <span class="nx">saveRelatedModels</span> <span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="kd">var</span> <span class="nx">related_todos</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">todos</span><span class="p">.</span><span class="nx">pluck</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">);</span>
+</span><span class='line'>        <span class="kd">var</span> <span class="nx">related_recommended</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">recommended</span><span class="p">.</span><span class="nx">pluck</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">);</span>
+</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="nx">save</span><span class="p">({</span><span class="nx">id</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span> <span class="nx">todos</span><span class="o">:</span> <span class="nx">related_todos</span><span class="p">,</span> <span class="nx">recommended</span><span class="o">:</span><span class="nx">related_recommended</span><span class="p">});</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">});</span>
+</span><span class='line'><span class="o">&lt;</span><span class="err">/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>"Place model that has a relationship to users that have recommended it or have it on their todo list  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="kd">var</span> <span class="nx">Place</span> <span class="o">=</span> <span class="nx">Backbone</span><span class="p">.</span><span class="nx">Model</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span>    <span class="nx">defaults</span><span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">id</span><span class="o">:</span><span class="mi">0</span><span class="p">,</span>
+</span><span class='line'>        <span class="nx">updated_at</span> <span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+</span><span class='line'>        <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+</span><span class='line'>        <span class="nx">description</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+</span><span class='line'>        <span class="nx">address</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+</span><span class='line'>        <span class="nx">distance</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+</span><span class='line'>        <span class="nx">latitude</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+</span><span class='line'>        <span class="nx">longitude</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+</span><span class='line'>        <span class="nx">todousers</span><span class="o">:</span> <span class="p">[],</span>
+</span><span class='line'>        <span class="nx">recommendedusers</span><span class="o">:</span> <span class="p">[],</span>
+</span><span class='line'>        <span class="nx">canRemoveRecommended</span><span class="o">:</span><span class="kc">false</span><span class="p">,</span>
+</span><span class='line'>        <span class="nx">canRemoveTodo</span><span class="o">:</span><span class="kc">false</span>
+</span><span class='line'>    <span class="p">},</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nx">urlRoot</span><span class="o">:</span> <span class="s2">&quot;/api/index.php/place.json&quot;</span><span class="p">,</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nx">initialize</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="kd">var</span> <span class="nx">self</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="nx">todousers</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">RelatedUserList</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;todousers&#39;</span><span class="p">));</span>
+</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="nx">todousers</span><span class="p">.</span><span class="nx">url</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>            <span class="k">return</span> <span class="nx">self</span><span class="p">.</span><span class="nx">urlRoot</span> <span class="o">+</span> <span class="s1">&#39;/todousers/&#39;</span><span class="o">+</span><span class="nx">self</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;sid&#39;</span><span class="p">);</span>
+</span><span class='line'>        <span class="p">};</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="nx">recommendedusers</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">RelatedUserList</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;recommendedusers&#39;</span><span class="p">));</span>
+</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="nx">recommendedusers</span><span class="p">.</span><span class="nx">url</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>            <span class="k">return</span> <span class="nx">self</span><span class="p">.</span><span class="nx">urlRoot</span> <span class="o">+</span> <span class="s1">&#39;/recommendedusers/&#39;</span><span class="o">+</span><span class="nx">self</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;sid&#39;</span><span class="p">);</span>
+</span><span class='line'>        <span class="p">};</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">});</span>
+</span><span class='line'><span class="o">&lt;</span><span class="err">/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>Related place collection   </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">RelatedPlaceList</span> <span class="o">=</span>  <span class="nx">Backbone</span><span class="p">.</span><span class="nx">Collection</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span><span class="nx">model</span> <span class="o">:</span> <span class="nx">Place</span><span class="p">,</span>
+</span><span class='line'><span class="nx">search</span> <span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">letters</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">if</span><span class="p">(</span><span class="nx">letters</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+</span><span class='line'>        <span class="k">return</span> <span class="k">this</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">pattern</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">RegExp</span><span class="p">(</span><span class="nx">letters</span><span class="p">,</span><span class="s2">&quot;gi&quot;</span><span class="p">);</span>
+</span><span class='line'>        <span class="k">return</span> <span class="nx">_</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>            <span class="k">return</span> <span class="nx">pattern</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">))</span> <span class="o">||</span><span class="nx">pattern</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;description&quot;</span><span class="p">));</span>
+</span><span class='line'>            <span class="p">}));</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="o">&lt;</span><span class="err">/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="p">});</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>View that allows you to add a recommendation or add it to your ToDo list  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">app</span><span class="p">.</span><span class="nx">PlaceView</span> <span class="o">=</span> <span class="nx">Backbone</span><span class="p">.</span><span class="nx">View</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span>    <span class="c1">//... is a list tag.</span>
+</span><span class='line'>    <span class="nx">tagName</span><span class="o">:</span>  <span class="s1">&#39;div&#39;</span><span class="p">,</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nx">className</span><span class="o">:</span> <span class="s1">&#39;span4 well well-small&#39;</span><span class="p">,</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// Cache the template function for a single item.</span>
+</span><span class='line'>    <span class="nx">template</span><span class="o">:</span> <span class="nx">_</span><span class="p">.</span><span class="nx">template</span><span class="p">(</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#place-template&#39;</span><span class="p">).</span><span class="nx">html</span><span class="p">()</span> <span class="p">),</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// The DOM events specific to an item.</span>
+</span><span class='line'>    <span class="nx">events</span><span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>        <span class="s1">&#39;click .bookmark&#39;</span> <span class="o">:</span> <span class="s1">&#39;addBookmark&#39;</span><span class="p">,</span>
+</span><span class='line'>        <span class="s1">&#39;click .recommend&#39;</span> <span class="o">:</span> <span class="s1">&#39;addRecommendation&#39;</span><span class="p">,</span>
+</span><span class='line'>        <span class="s1">&#39;click .on-todo-list&#39;</span> <span class="o">:</span> <span class="s1">&#39;showUsersToDo&#39;</span><span class="p">,</span>
+</span><span class='line'>        <span class="s1">&#39;click .recommend-by&#39;</span> <span class="o">:</span> <span class="s1">&#39;showUsersRecommend&#39;</span>
+</span><span class='line'>    <span class="p">},</span>
+</span><span class='line'>    <span class="nx">initialize</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="nx">model</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span> <span class="s1">&#39;change&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">render</span><span class="p">,</span> <span class="k">this</span> <span class="p">);</span>
+</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="nx">model</span><span class="p">.</span><span class="nx">todousers</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span> <span class="s1">&#39;reset&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">addUsersToDo</span><span class="p">,</span> <span class="k">this</span> <span class="p">);</span>
+</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="nx">model</span><span class="p">.</span><span class="nx">recommendedusers</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span> <span class="s1">&#39;reset&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">addUsersRecommend</span><span class="p">,</span> <span class="k">this</span> <span class="p">);</span>
+</span><span class='line'>    <span class="p">},</span>
+</span><span class='line'>    <span class="nx">showUsersToDo</span> <span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="nx">model</span><span class="p">.</span><span class="nx">todousers</span><span class="p">.</span><span class="nx">fetch</span><span class="p">();</span>
+</span><span class='line'>        <span class="kd">var</span> <span class="nx">todoId</span> <span class="o">=</span> <span class="s1">&#39;#todo_&#39;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">model</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">);</span>
+</span><span class='line'>        <span class="nx">$</span><span class="p">(</span><span class="nx">todoId</span><span class="p">).</span><span class="nx">slideToggle</span><span class="p">(</span><span class="s1">&#39;slow&#39;</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="p">},</span>
+</span><span class='line'>    <span class="nx">showUsersRecommend</span> <span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="nx">model</span><span class="p">.</span><span class="nx">recommendedusers</span><span class="p">.</span><span class="nx">fetch</span><span class="p">();</span>
+</span><span class='line'>        <span class="kd">var</span> <span class="nx">recommendedId</span> <span class="o">=</span> <span class="s1">&#39;#recommended_&#39;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">model</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">);</span>
+</span><span class='line'>        <span class="nx">$</span><span class="p">(</span><span class="nx">recommendedId</span><span class="p">).</span><span class="nx">slideToggle</span><span class="p">(</span><span class="s1">&#39;slow&#39;</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">},</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nx">addBookmark</span> <span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="kd">var</span> <span class="nx">userId</span> <span class="o">=</span> <span class="nx">app</span><span class="p">.</span><span class="nx">BrowsingUserSession</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">);</span>
+</span><span class='line'>        <span class="k">if</span><span class="p">(</span><span class="nx">app</span><span class="p">.</span><span class="nx">Users</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">userId</span><span class="p">)){</span>
+</span><span class='line'>            <span class="nx">app</span><span class="p">.</span><span class="nx">Users</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">userId</span><span class="p">).</span><span class="nx">todos</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">model</span><span class="p">);</span>
+</span><span class='line'>            <span class="nx">app</span><span class="p">.</span><span class="nx">Users</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">userId</span><span class="p">).</span><span class="nx">saveRelatedModels</span><span class="p">();</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>    <span class="p">},</span>
+</span><span class='line'>    <span class="nx">addRecommendation</span> <span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="kd">var</span> <span class="nx">userId</span> <span class="o">=</span> <span class="nx">app</span><span class="p">.</span><span class="nx">BrowsingUserSession</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">);</span>
+</span><span class='line'>        <span class="k">if</span><span class="p">(</span><span class="nx">app</span><span class="p">.</span><span class="nx">Users</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">userId</span><span class="p">)){</span>
+</span><span class='line'>            <span class="nx">app</span><span class="p">.</span><span class="nx">Users</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">userId</span><span class="p">).</span><span class="nx">recommended</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">model</span><span class="p">);</span>
+</span><span class='line'>            <span class="nx">app</span><span class="p">.</span><span class="nx">Users</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">userId</span><span class="p">).</span><span class="nx">saveRelatedModels</span><span class="p">();</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">});</span>
+</span><span class='line'><span class="o">&lt;</span><span class="err">/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+]]></content>
+  </entry>
+  
+</feed>
