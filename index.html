@@ -224,50 +224,87 @@
   <div class="entry-content"><p class="lead"></p>
 
 
+
+
+<figure class='code'><figcaption><span>[User Model that has a relationship to places] [] </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">User</span> <span class="o">=</span> <span class="nx">Backbone</span><span class="p">.</span><span class="nx">Model</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+</span><span class='line'>
+</span><span class='line'>      <span class="nx">defaults</span><span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>          <span class="nx">id</span><span class="o">:</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
+</span><span class='line'>          <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+</span><span class='line'>          <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+</span><span class='line'>          <span class="nx">thumbnail</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+</span><span class='line'>          <span class="nx">newsletter</span><span class="o">:</span><span class="kc">false</span><span class="p">,</span>
+</span><span class='line'>          <span class="nx">updated_at</span> <span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+</span><span class='line'>          <span class="nx">todos</span><span class="o">:</span> <span class="p">[],</span>
+</span><span class='line'>          <span class="nx">recommended</span><span class="o">:</span> <span class="p">[]</span>
+</span><span class='line'>      <span class="p">},</span>
+</span><span class='line'>      
+</span><span class='line'>      <span class="nx">urlRoot</span><span class="o">:</span> <span class="s2">&quot;/api/index.php/user.json&quot;</span><span class="p">,</span>
+</span><span class='line'>      
+</span><span class='line'>      <span class="nx">initialize</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>          
+</span><span class='line'>          <span class="kd">var</span> <span class="nx">self</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+</span><span class='line'>          
+</span><span class='line'>          <span class="k">this</span><span class="p">.</span><span class="nx">todos</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">RelatedPlaceList</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;todos&#39;</span><span class="p">));</span>
+</span><span class='line'>          <span class="k">this</span><span class="p">.</span><span class="nx">todos</span><span class="p">.</span><span class="nx">url</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>              <span class="k">return</span> <span class="nx">self</span><span class="p">.</span><span class="nx">urlRoot</span> <span class="o">+</span> <span class="s1">&#39;/todos/&#39;</span><span class="o">+</span><span class="nx">self</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">);</span>
+</span><span class='line'>          <span class="p">};</span>
+</span><span class='line'>          
+</span><span class='line'>          <span class="k">this</span><span class="p">.</span><span class="nx">recommended</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">RelatedPlaceList</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;recommended&#39;</span><span class="p">));</span>
+</span><span class='line'>          <span class="k">this</span><span class="p">.</span><span class="nx">recommended</span><span class="p">.</span><span class="nx">url</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>              <span class="k">return</span> <span class="nx">self</span><span class="p">.</span><span class="nx">urlRoot</span> <span class="o">+</span> <span class="s1">&#39;/recommended/&#39;</span><span class="o">+</span><span class="nx">self</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">);</span>
+</span><span class='line'>          <span class="p">};</span>
+</span><span class='line'>          
+</span><span class='line'>      <span class="p">},</span>
+</span><span class='line'>      <span class="nx">saveRelatedModels</span> <span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+</span><span class='line'>          
+</span><span class='line'>          <span class="kd">var</span> <span class="nx">related_todos</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">todos</span><span class="p">.</span><span class="nx">pluck</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">);</span>
+</span><span class='line'>          <span class="kd">var</span> <span class="nx">related_recommended</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">recommended</span><span class="p">.</span><span class="nx">pluck</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">);</span>   
+</span><span class='line'>          <span class="k">this</span><span class="p">.</span><span class="nx">save</span><span class="p">({</span><span class="nx">id</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span> <span class="nx">todos</span><span class="o">:</span> <span class="nx">related_todos</span><span class="p">,</span> <span class="nx">recommended</span><span class="o">:</span><span class="nx">related_recommended</span><span class="p">});</span>
+</span><span class='line'>      <span class="p">}</span>
+</span><span class='line'>  <span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
 <p><code>
-User Model that has a relationship to places</p>
-
-<p>var User = Backbone.Model.extend({</p>
-
-<pre><code>    defaults: {
-        id:'',
-        name: '',
-        email: '',
-        thumbnail: '',
-        newsletter:false,
-        updated_at : '',
-        todos: [],
-        recommended: []
-    },
-
-    urlRoot: "/api/index.php/user.json",
-
-    initialize: function() {
-
-        var self = this;
-
-        this.todos = new RelatedPlaceList(this.get('todos'));
-        this.todos.url = function () {
-            return self.urlRoot + '/todos/'+self.get('id');
-        };
-
-        this.recommended = new RelatedPlaceList(this.get('recommended'));
-        this.recommended.url = function () {
-            return self.urlRoot + '/recommended/'+self.get('id');
-        };
-
-    },
-    saveRelatedModels : function(){
-
-        var related_todos = this.todos.pluck('id');
-        var related_recommended = this.recommended.pluck('id'); 
-        this.save({id: this.id, todos: related_todos, recommended:related_recommended});
-    }
-});
-</code></pre>
-
-<p></code>
-<code>
 The Place Model that has a relationship to Users that have recommended it or have it on their todo list</p>
 
 <p>var Place = Backbone.Model.extend({</p>
