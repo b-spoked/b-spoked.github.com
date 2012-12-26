@@ -135,7 +135,9 @@
 
 
 <p><code>
-var User = Backbone.Model.extend({</p>
+User Model that has a relationship to places</p>
+
+<p>var User = Backbone.Model.extend({</p>
 
 <pre><code>    defaults: {
         id:'',
@@ -176,7 +178,9 @@ var User = Backbone.Model.extend({</p>
 
 <p></code>
 <code>
-var Place = Backbone.Model.extend({</p>
+The Place Model that has a relationship to Users that have recommended it or have it on their todo list</p>
+
+<p>var Place = Backbone.Model.extend({</p>
 
 <pre><code>    defaults: {
         id:0,
@@ -217,7 +221,9 @@ var Place = Backbone.Model.extend({</p>
 <p></code></p>
 
 <p><code>
-var RelatedPlaceList =  Backbone.Collection.extend({</p>
+The Related Place collection</p>
+
+<p>var RelatedPlaceList =  Backbone.Collection.extend({</p>
 
 <pre><code>model : Place,
 search : function(letters) {
@@ -234,7 +240,8 @@ search : function(letters) {
 <p>});
 </code></p>
 
-<p><code></p>
+<p><code>
+Place View that allows you to add a recommendation for the Place or add it to your ToDo list</p>
 
 <p>app.PlaceView = Backbone.View.extend({</p>
 

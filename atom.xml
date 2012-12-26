@@ -4,7 +4,7 @@
   <title><![CDATA[B-Spoked]]></title>
   <link href="http://b-spoked.com/atom.xml" rel="self"/>
   <link href="http://b-spoked.com/"/>
-  <updated>2012-12-26T13:42:04+13:00</updated>
+  <updated>2012-12-26T14:06:47+13:00</updated>
   <id>http://b-spoked.com/</id>
   <author>
     <name><![CDATA[B-Spoked]]></name>
@@ -56,7 +56,9 @@
 
 
 <p><code>
-var User = Backbone.Model.extend({</p>
+User Model that has a relationship to places</p>
+
+<p>var User = Backbone.Model.extend({</p>
 
 <pre><code>    defaults: {
         id:'',
@@ -97,7 +99,9 @@ var User = Backbone.Model.extend({</p>
 
 <p></code>
 <code>
-var Place = Backbone.Model.extend({</p>
+The Place Model that has a relationship to Users that have recommended it or have it on their todo list</p>
+
+<p>var Place = Backbone.Model.extend({</p>
 
 <pre><code>    defaults: {
         id:0,
@@ -138,7 +142,9 @@ var Place = Backbone.Model.extend({</p>
 <p></code></p>
 
 <p><code>
-var RelatedPlaceList =  Backbone.Collection.extend({</p>
+The Related Place collection</p>
+
+<p>var RelatedPlaceList =  Backbone.Collection.extend({</p>
 
 <pre><code>model : Place,
 search : function(letters) {
@@ -155,7 +161,8 @@ search : function(letters) {
 <p>});
 </code></p>
 
-<p><code></p>
+<p><code>
+Place View that allows you to add a recommendation for the Place or add it to your ToDo list</p>
 
 <p>app.PlaceView = Backbone.View.extend({</p>
 
